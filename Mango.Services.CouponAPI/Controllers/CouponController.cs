@@ -8,13 +8,13 @@ namespace Mango.Services.CouponAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CouponAPIController : ControllerBase
+    public class CouponController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
         private readonly ResponseDto _response;
         private readonly IMapper _mapper;
 
-        public CouponAPIController(AppDbContext dbContext, IMapper mapper)
+        public CouponController(AppDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
@@ -122,6 +122,7 @@ namespace Mango.Services.CouponAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id:int}")]
         public ResponseDto Delete(int id)
         {
             try
